@@ -5,7 +5,7 @@ filter: "evt.Parsed.program startsWith 'traefik'"
 #debug: true
 onsuccess: next_stage
 pattern_syntax:
-  TRAEFIK_ROUTER: '(%{USER}@%{URIHOST}|\-)'
+  TRAEFIK_ROUTER: '((%{USER}@)?%{URIHOST}|\-)'
   TRAEFIK_SERVER_URL: '(%{URI}|\-)'
   NGINXACCESS2: '%{IPORHOST:remote_addr} - %{NGUSER:remote_user} \[%{HTTPDATE:time_local}\] "%{WORD:verb} %{DATA:request} HTTP/%{NUMBER:http_version}" %{NUMBER:status} %{NUMBER:body_bytes_sent} "%{NOTDQUOTE:http_referer}" "%{NOTDQUOTE:http_user_agent}"'
 nodes:
